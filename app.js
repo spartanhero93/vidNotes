@@ -36,6 +36,9 @@ app.get('/about', (req, res) => {
 app.get('/ideas/add', (req, res) => {
   res.sendFile(__dirname + '/public/ideas/add.html')
 })
+app.post('/ideas', (req, res) => {
+  res.send({ success: true })
+})
 
 const port = 5000
 
