@@ -11,12 +11,19 @@ app.use(bodyParser.urlencoded({ extended: true }))
 mongoose.Promise = global.Promise
 // Connect to mongoose
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb://localhost:27017/server')
+mongoose
+  .connect('mongodb://localhost/vidNotes-dev')
+  .then(() => console.log('MongoDB Connected...'))
+  .catch(err => console.log(err))
+
 mongoose.connection.on(
   'error',
   console.error.bind(console, 'MongoDB connection error:')
 )
 
+// Model
+require('./models/Idea')
+const Idea = mongoose.model('ideas')
 // Index Route
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html')
@@ -24,6 +31,10 @@ app.get('/', (req, res) => {
 // About Route
 app.get('/about', (req, res) => {
   res.sendFile(__dirname + '/public/about.html')
+})
+// Add Idea Form
+app.get('/ideas/add', (req, res) => {
+  res.sendFile(__dirname + '/public/ideas/add.html')
 })
 
 const port = 5000

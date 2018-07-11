@@ -44,15 +44,22 @@
     </div>
   </nav>
 
-
   <div class="container">
-    <div class="jumbotron text-center">
-      <h1 class="display-3">VidNotes</h1>
-      <p class="lead">Create notes for future Videos</p>
-      <a href="/ideas/add" class="btn btn-dark btn-lg">Add a Video Idea</a>
+    <div class="card card-body">
+      <h3>Video Idea</h3>
+      <form action="/ideas" method="post">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" name="title">
+        </div>
+        <div class="form-group">
+          <label for="details">Details</label>
+          <textarea class="form-control" name="details"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
     </div>
   </div>
-
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
